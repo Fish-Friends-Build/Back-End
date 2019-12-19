@@ -28,6 +28,8 @@ router.use('/login', verifyUserFields, async (req, res) => {
                 username: user.username,
                 token: genToken(user)
             })
+        } else {
+            return res.status(401).json({ message: "Invalid credentials." });
         }
     } catch(err) {
         res.status(401).json({ message: "Invalid credentials." });
