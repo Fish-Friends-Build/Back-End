@@ -5,6 +5,10 @@
   "repository": "https://github.com/Fish-Friends-Build/Back-End.git",
   "author": "AceIsHuman <menoman1995@yahoo.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
