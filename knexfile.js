@@ -6,8 +6,8 @@ module.exports = {
     connection: {
       host: process.env.PG_HOST,
       user: process.env.PG_USER,
-      password: process.PG_PASSWORD,
-      database: process.PG_DATABASE
+      password: process.env.PG_PASSWORD,
+      database: process.env.PG_DATABASE
     },
     migrations: {
       directory: './knex/migrations'
