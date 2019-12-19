@@ -25,3 +25,5 @@ function verifyUserFields(req, res, next) {
     if (!password) return res.status(401).json({ message: "Provide a password" });
     next();
 };
+
+module.exports = router;
