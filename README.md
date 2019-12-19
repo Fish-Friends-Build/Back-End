@@ -6,3 +6,20 @@ Our API allows users to find and add new fishing spots in their area, and keep a
 
 # Endpoints
 
+## Register a user
+POST: `/api/auth/register` 
+```
+{
+  "username": "bestfisherman",
+  "password": "mysecretthing"
+}
+```
+
+## Login a user
+POST: `/api/auth/login`
+```
+{
+  "username": "bestfisherman",
+  "password": "mysecretthing"
+}
+```
