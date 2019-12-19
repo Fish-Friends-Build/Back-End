@@ -3,11 +3,11 @@ const bcrypt = require('bcryptjs');
 const Users = require('./authModel.js');
 const genToken = require('../../utils/generateToken.js');
 
-router.use('/register', verifyUserFields, (req, res) => {
+router.use('/register', verifyUserFields, async (req, res) => {
     const creds = req.body;
     creds.password = bcrypt.hashSync(creds.password, 12);
     try {
-        const user = Users.insert(creds);
+        const [user] = await Users.insert(creds);
         return res.status(200).json({
             id: user.id,
             username: user.username,
