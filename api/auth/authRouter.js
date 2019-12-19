@@ -2,7 +2,7 @@ const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const Users = require('./authModel.js');
 
-router.use('/register', (req, res) => {
+router.use('/register', verifyUserFields, (req, res) => {
     const creds = req.body;
     creds.password = bcrypt.hashSync(creds.password, 12);
     try {
@@ -16,3 +16,11 @@ router.use('/register', (req, res) => {
         res.status(401).json({ errorMessage: "An account with that username already exists." });
     }
 });
+
+function verifyUserFields(req, res, next) {
+    const { username, password } = req.body;
+    if (!username && !password) return res.status(401).json({ message: "Username and password required" });
+    if (!username) return res.status(401).json({ message: "Provide a username" });
+    if (!password) return res.status(401).json({ message: "Provide a password" });
+    next();
+};
