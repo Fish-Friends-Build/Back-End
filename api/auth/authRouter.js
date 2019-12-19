@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const Users = require('./authModel.js');
+const genToken = require('../../utils/generateToken.js');
 
 router.use('/register', verifyUserFields, (req, res) => {
     const creds = req.body;
