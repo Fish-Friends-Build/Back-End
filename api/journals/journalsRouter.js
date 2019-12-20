@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
   const journals = await Journals.find();
-  return res.status(200).json({journals});
+  return res.status(200).json(journals);
 });
 
 module.exports = router;
