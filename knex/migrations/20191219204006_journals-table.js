@@ -4,6 +4,12 @@ exports.up = function(knex) {
     knex.schema
       .createTable('journals', tbl => {
         tbl.increments();
+        tbl.integer('userId')
+          .unsigned()
+          .notNullable()
+          .references('users.id')
+          .onUpdate('CASCADE')
+          .onUpdate('CASCADE');
         tbl.integer('numFishCaught').notNullable();
         tbl.date('date').notNullable();
         tbl.string('timeOfDay').notNullable();
