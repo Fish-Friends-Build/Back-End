@@ -23,3 +23,19 @@ POST: `/api/auth/login`
   "password": "mysecretthing"
 }
 ```
+
+## Add Journal Entry
+POST: `/api/journals`
+```
+{
+  "numFishCaught": 2,
+  "date": "December 22nd, 2019",
+  "timeOfDay": "Morning",
+  "location": "Hickory Creek",
+  "fishType": ["Bass", "Catfish"], -----> not required
+  "bait": "worms", -----> not required
+  "bankOrBoat": "Bank",
+  "waterType": "Freshwater",
+  "notes": null
+}
+```
