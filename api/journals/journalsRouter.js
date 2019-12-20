@@ -2,7 +2,8 @@ const router = require('express').Router();
 const Journals = require('./journalsModel.js');
 
 router.post('/', async (req, res) => {
-  const [journal] = await Journals.insert(req.body);
+  const user = res.locals.decodedJwt;
+  const [journal] = await Journals.insert({ ...req.body, userId: user.id });
   return res.status(200).json(journal);
 });
 
