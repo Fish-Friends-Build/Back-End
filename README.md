@@ -39,3 +39,9 @@ POST: `/api/journals`
   "notes": null
 }
 ```
+
+## Get All Journal Entries
+GET: `/api/journals`
+```
+returns an array containing all journal entries
+```
