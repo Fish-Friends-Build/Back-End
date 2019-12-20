@@ -9,7 +9,7 @@ module.exports = {
 };
 
 function find() {
-  return db('jounals');
+  return db('journals');
 }
 
 function findBy(id) {
