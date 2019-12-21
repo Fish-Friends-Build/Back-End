@@ -11,10 +11,10 @@ exports.up = function(knex) {
           .onUpdate('CASCADE')
           .onUpdate('CASCADE');
         tbl.integer('numFishCaught').notNullable();
-        tbl.date('date').notNullable();
+        tbl.string('date').notNullable();
         tbl.string('timeOfDay').notNullable();
         tbl.string('location').notNullable();
-        tbl.string('fishType');
+        tbl.specificType('fishType', 'TEXT[]');
         tbl.string('bait');
         tbl.text('bankOrBoat').notNullable();
         tbl.text('waterType').notNullable();
