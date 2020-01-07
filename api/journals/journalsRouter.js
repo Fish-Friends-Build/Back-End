@@ -10,7 +10,8 @@ router.post('/', async (req, res) => {
     }
   }
   const [journal] = await Journals.insert({ ...req.body, userId: user.id });
-  return res.status(200).json({ ...journal, username: user.username });
+  const { userId, id, ...rest } = journal;
+  return res.status(200).json({ id, username: user.username, ...rest });
 });
 
 router.get('/', async (req, res) => {
