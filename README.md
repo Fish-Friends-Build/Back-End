@@ -45,3 +45,9 @@ GET: `/api/journals`
 ```
 returns an array containing all journal entries
 ```
+
+## Get Users Journal Entries
+GET: `/api/journals/user/:id`
+```
+returns an array containing a single users journal entries
+```
