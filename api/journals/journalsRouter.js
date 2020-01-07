@@ -40,4 +40,13 @@ router.get('/user/:id', async (req, res) => {
     : res.status(404).json({ message: 'No entries found for this user' });
 })
 
+// DELETE A JOURNAL ENTRY
+router.delete('/:id', async (req, res) => {
+  const id = req.params.id;
+  const status = await Journals.remove(id);
+  status
+    ? res.status(204).end()
+    : res.status(404).json({ message: 'Entry not found' });
+});
+
 module.exports = router;
