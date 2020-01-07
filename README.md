@@ -61,3 +61,9 @@ GET: `/api/journals/user/:id`
 ```
 returns an array containing a single users journal entries
 ```
+
+## Delete a Journal Entry
+DELETE: `/api/journals/:id`
+```
+Returns 204 on successful delete
+```
