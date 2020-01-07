@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
   const fishType = req.body.fishType;
   if (fishType) {
     if (!Array.isArray(fishType)) {
-      return res.status(401).json({ message: 'Value of fishType must be an array.' })
+      req.body.fishType = [fishType];
     }
   }
   const [journal] = await Journals.insert({ ...req.body, userId: user.id });
