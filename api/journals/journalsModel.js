@@ -14,6 +14,7 @@ function find() {
     .select(
       'j.id',
       'u.username',
+      'j.userId',
       'j.numFishCaught',
       'j.date',
       'j.timeOfDay',
@@ -33,6 +34,7 @@ function findBy(id) {
     .select(
       'j.id',
       'u.username',
+      'j.userId',
       'j.numFishCaught',
       'j.date',
       'j.timeOfDay',
