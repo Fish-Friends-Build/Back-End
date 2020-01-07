@@ -40,6 +40,16 @@ POST: `/api/journals`
 }
 ```
 
+## Update a Journal Entry
+PUT: `/api/journals/:id`
+```
+{
+  "numFishCaught": 2,
+  "date": "December 22nd, 2019",
+  ...
+}
+```
+
 ## Get All Journal Entries
 GET: `/api/journals`
 ```
