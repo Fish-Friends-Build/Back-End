@@ -15,6 +15,16 @@ router.post('/', async (req, res) => {
   return res.status(200).json({ id, username: user.username, ...rest });
 });
 
+// UPDATE A JOURNAL ENTRY
+router.put('/:id', async (req, res) => {
+  if (req.body.userId) return res.status(401).json({ message: 'Not able to update userId'})
+  const id = req.params.id;
+  const user = res.locals.decodedJwt;
+  const [journal] = await Journals.update(id, req.body);
+  const { userId, ...rest } = journal;
+  return res.status(200).json({ id, username: user.username, ...rest });
+});
+
 // GET ALL JOURNAL ENTRIES
 router.get('/', async (req, res) => {
   const journals = await Journals.find();
