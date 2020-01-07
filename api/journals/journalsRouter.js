@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Journals = require('./journalsModel.js');
 
+// ADD A NEW JOURNAL ENTRY
 router.post('/', async (req, res) => {
   const user = res.locals.decodedJwt;
   const fishType = req.body.fishType;
@@ -14,6 +15,7 @@ router.post('/', async (req, res) => {
   return res.status(200).json({ id, username: user.username, ...rest });
 });
 
+// GET ALL JOURNAL ENTRIES
 router.get('/', async (req, res) => {
   const journals = await Journals.find();
   return res.status(200).json(journals);
