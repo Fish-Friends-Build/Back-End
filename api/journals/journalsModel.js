@@ -9,11 +9,40 @@ module.exports = {
 };
 
 function find() {
-  return db('journals');
+  return db('journals as j')
+    .join('users as u', { 'j.userId': 'u.id' })
+    .select(
+      'j.id',
+      'u.username',
+      'j.numFishCaught',
+      'j.date',
+      'j.timeOfDay',
+      'j.location',
+      'j.fishType',
+      'j.bait',
+      'j.bankOrBoat',
+      'j.waterType',
+      'j.notes'
+    );
 }
 
 function findBy(id) {
-  return db('journals').where(id);
+  return db('journals as j')
+    .where(id)
+    .join('users as u', { 'j.userId': 'u.id' })
+    .select(
+      'j.id',
+      'u.username',
+      'j.numFishCaught',
+      'j.date',
+      'j.timeOfDay',
+      'j.location',
+      'j.fishType',
+      'j.bait',
+      'j.bankOrBoat',
+      'j.waterType',
+      'j.notes'
+    );
 }
 
 function insert(journal) {
