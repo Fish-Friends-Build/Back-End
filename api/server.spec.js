@@ -6,3 +6,13 @@ describe('testing environment', () => {
     expect(process.env.NODE_ENV).toBe('testing');
   });
 });
+
+describe('REGISTER USER: POST: /api/auth/register', () => {
+  it('should return 200', async () => {
+    const res = await request(server)
+      .post('/api/auth/register')
+      .send({ username: 'username', password: 'password' })
+      .set('Content-Type', 'application/json');
+    expect(res.status).toBe(200);
+  });
+});
