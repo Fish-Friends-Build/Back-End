@@ -8,11 +8,12 @@ describe('testing environment', () => {
 });
 
 describe('REGISTER USER: POST: /api/auth/register', () => {
-  it('should return 200', async () => {
+  it('should return 200, and contain token', async () => {
     const res = await request(server)
       .post('/api/auth/register')
       .send({ username: 'username', password: 'password' })
       .set('Content-Type', 'application/json');
-    expect(res.status).toBe(200);
+      expect(res.status).toBe(200)
+      expect(res.body.token).toBeTruthy();
   });
 });
