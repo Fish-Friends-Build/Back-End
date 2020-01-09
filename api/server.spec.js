@@ -16,4 +16,12 @@ describe('REGISTER USER: POST: /api/auth/register', () => {
       expect(res.status).toBe(200)
       expect(res.body.token).toBeTruthy();
   });
+
+  it('should return 401 to avoid duplicate user', async () => {
+    const res = await request(server)
+      .post('/api/auth/register')
+      .send({ username: 'username', password: 'mysecret' })
+      .set('Content-Type', 'application/json');
+    expect(res.status).toBe(401);
+  });
 });
