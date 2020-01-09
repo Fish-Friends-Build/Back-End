@@ -30,7 +30,7 @@ module.exports = {
       directory: './knex/migrations'
     },
     seeds: {
-      directory: './knex/seeds'
+      directory: './knex/seeds/testing'
     },
     useNullAsDefault: true
   },
