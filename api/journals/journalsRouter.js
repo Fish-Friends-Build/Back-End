@@ -30,7 +30,7 @@ router.get('/user/:id', async (req, res) => {
   const entries = await Journals.findBy({ userId: id });
   entries.length
     ? res.status(200).json(entries)
-    : res.status(404).json({ message: 'No entries found for this user' });
+    : res.status(200).json({ message: 'No entries found for this user' });
 })
 
 // DELETE A JOURNAL ENTRY
