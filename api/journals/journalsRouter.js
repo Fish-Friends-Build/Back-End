@@ -11,7 +11,6 @@ router.post('/', validateEntryContent, async (req, res) => {
 
 // UPDATE A JOURNAL ENTRY
 router.put('/:id', validateEntryUser, validateEntryContent, async (req, res) => {
-  if (req.body.userId) return res.status(401).json({ message: 'Not able to update userId'})
   const id = req.params.id;
   const user = res.locals.decodedJwt;
   const [journal] = await Journals.update(id, req.body);
